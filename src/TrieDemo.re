@@ -78,13 +78,15 @@ let make = () => {
   });
 
   <div className="container--app">
-    <input
-      placeholder="Search Here...."
-      value={state.value}
-      onChange={_event =>
-        dispatch(Search(ReactEvent.Form.target(_event)##value))
-      }
-    />
+    <div className="wrapper--searchbar">
+      <input
+        placeholder="Search Here...."
+        value={state.value}
+        onChange={_event =>
+          dispatch(Search(ReactEvent.Form.target(_event)##value))
+        }
+      />
+    </div>
     {state.show_add_word
        ? <button onClick={_event => dispatch(Add)}>
            {ReasonReact.string("Add Word")}
@@ -94,7 +96,10 @@ let make = () => {
       {ReasonReact.array(
          Array.of_list(
            List.map(
-             str => <div key=str className="wrapper--word"> {ReasonReact.string(str)} </div>,
+             str =>
+               <div key=str className="wrapper--word">
+                 {ReasonReact.string(str)}
+               </div>,
              state.string_list,
            ),
          ),

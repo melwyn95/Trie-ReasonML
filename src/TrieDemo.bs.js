@@ -71,13 +71,15 @@ function TrieDemo(Props) {
   var match$1 = state[/* show_add_word */3];
   return React.createElement("div", {
               className: "container--app"
-            }, React.createElement("input", {
-                  placeholder: "Search Here....",
-                  value: state[/* value */1],
-                  onChange: (function (_event) {
-                      return Curry._1(dispatch, /* Search */Block.__(0, [_event.target.value]));
-                    })
-                }), match$1 ? React.createElement("button", {
+            }, React.createElement("div", {
+                  className: "wrapper--searchbar"
+                }, React.createElement("input", {
+                      placeholder: "Search Here....",
+                      value: state[/* value */1],
+                      onChange: (function (_event) {
+                          return Curry._1(dispatch, /* Search */Block.__(0, [_event.target.value]));
+                        })
+                    })), match$1 ? React.createElement("button", {
                     onClick: (function (_event) {
                         return Curry._1(dispatch, /* Add */0);
                       })
